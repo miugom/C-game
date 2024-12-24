@@ -88,12 +88,11 @@ enum Color
 #pragma endregion
 
 #pragma region Double Buffer
-#define BufferWidth 100
+#define BufferWidth 200
 #define BufferHeight 100
 
-HANDLE hBuffer[2];
+HANDLE screen[2];
 int screenIndex;
-
 
 void InitBuffer();
 void FlipBuffer();
@@ -102,6 +101,8 @@ void WriteBuffer(int x, int y, const char* shape, int color = WHITE);
 void ReleaseBuffer();
 #pragma endregion
 
+#define ITEM_COUNT 5
+
 #pragma region Struct
 struct Obj
 {
@@ -109,9 +110,11 @@ struct Obj
 	int y;
 	Color color;
 	const char* shape;
+	bool act;
 };
 
 #pragma endregion
+
 
 Obj* player = nullptr;
 Obj* item = nullptr;
@@ -159,11 +162,11 @@ void InitStage()
 	item->y = rand() % 50;
 	item->color = RED;
 	item->shape = "●";
-	//item->act = true;
+	item->act = true;
 
 }
 
-void ProgressStage()
+void ProgressStage() // 움직이기
 {
 	if (GetAsyncKeyState(VK_LEFT))
 	{
@@ -178,7 +181,7 @@ void ProgressStage()
 	{
 		player->x++;
 
-		if (map[player->x][player->y] == 1)
+		if (map[player->y][player->x] == 1)
 		{
 			player->x--;
 		}
@@ -196,13 +199,27 @@ void ProgressStage()
 	{
 		player->y++;
 
-		if (map[player->x][player->y] == 1)
+		if (map[player->y][player->x] == 1)
 		{
 			player->y--;
 		}
 	}
 
+	if (item->act)
+	{
+		if (player->x == item->x && player->y == item->y)
+		{			
+			
+			item->act = true;
+			item->x = rand() % 49;
+			item->y = rand() % 49;
+		
+		}
+
+	}
+
 }
+
 void RenderStage()
 {
 	{
@@ -213,7 +230,7 @@ void RenderStage()
 				switch (map[y][x])
 				{
 				case 1:
-					WriteBuffer(x, y, "■", WHITE);
+					WriteBuffer(x, y, "■", WHITE); //주위 맵
 					break;
 				default:
 					break;
@@ -236,6 +253,11 @@ void ReleaseStage()
 		player = nullptr;
 	}
 
+	if (item != nullptr)
+	{
+		free(item);
+		item = nullptr;
+	}
 
 }
 
@@ -251,25 +273,25 @@ void InitBuffer()
 
 	SMALL_RECT rect = { 0, 0, BufferWidth - 1, BufferHeight - 1 };
 
-	hBuffer[0] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-	SetConsoleScreenBufferSize(hBuffer[0], size);
-	SetConsoleWindowInfo(hBuffer[0], TRUE, &rect);
+	screen[0] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+	SetConsoleScreenBufferSize(screen[0], size);
+	SetConsoleWindowInfo(screen[0], TRUE, &rect);
 
-	hBuffer[1] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-	SetConsoleScreenBufferSize(hBuffer[1], size);
-	SetConsoleWindowInfo(hBuffer[1], TRUE, &rect);
+	screen[1] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+	SetConsoleScreenBufferSize(screen[1], size);
+	SetConsoleWindowInfo(screen[1], TRUE, &rect);
 
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 1;
 	info.bVisible = FALSE;
 
-	SetConsoleCursorInfo(hBuffer[0], &info);
-	SetConsoleCursorInfo(hBuffer[1], &info);
+	SetConsoleCursorInfo(screen[0], &info);
+	SetConsoleCursorInfo(screen[1], &info);
 }
 
 void FlipBuffer()
 {
-	SetConsoleActiveScreenBuffer(hBuffer[screenIndex]);
+	SetConsoleActiveScreenBuffer(screen[screenIndex]);
 
 	screenIndex = !screenIndex;
 }
@@ -279,24 +301,34 @@ void ClearBuffer()
 	COORD pos = { 0,0 };
 	DWORD dw;
 
-	FillConsoleOutputCharacter(hBuffer[screenIndex], ' ', BufferWidth * BufferHeight, pos, &dw);
+	FillConsoleOutputCharacter(screen[screenIndex], ' ', BufferWidth * BufferHeight, pos, &dw);
 }
 
 void WriteBuffer(int x, int y, const char* shape, int color)
 {
 	COORD pos = { x * 2, y };
 
-	SetConsoleCursorPosition(hBuffer[screenIndex], pos);
-	SetConsoleTextAttribute(hBuffer[screenIndex], color);
+	SetConsoleCursorPosition(screen[screenIndex], pos);
+	SetConsoleTextAttribute(screen[screenIndex], color);
 
 	DWORD dw;
-	WriteFile(hBuffer[screenIndex], shape, strlen(shape), &dw, NULL);
+	WriteFile(screen[screenIndex], shape, strlen(shape), &dw, NULL);
 }
 void ReleaseBuffer()
 {
-	CloseHandle(hBuffer[0]);
-	CloseHandle(hBuffer[1]);
+	CloseHandle(screen[0]);
+	CloseHandle(screen[1]);
 }
+void Render(int x, int y, const char* shape)
+{
+	DWORD dword;
+	COORD position = { x,y };
+
+	SetConsoleCursorPosition(screen[screenIndex], position);
+
+	WriteFile(screen[screenIndex], shape, strlen(shape), &dword, NULL);
+}
+
 #pragma endregion
 
 
