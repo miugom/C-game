@@ -1,13 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\C_study\\C-game\\",
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Desktop\\C_study\\Sample\\C-game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4FA9BDCB-70F4-43A6-978E-0BDCBC2ADD97}|C Game.vcxproj|C:\\Users\\Administrator\\Desktop\\C_study\\C-game\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{4FA9BDCB-70F4-43A6-978E-0BDCBC2ADD97}|C Game.vcxproj|C:\\Users\\Administrator\\Desktop\\C_study\\Sample\\C-game\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{4FA9BDCB-70F4-43A6-978E-0BDCBC2ADD97}|C Game.vcxproj|solutionrelative:Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E0388932-3948-4949-BA6E-46D61CB53FE7}|..\\Game Note\\Game Note.vcxproj|C:\\Users\\Administrator\\Desktop\\C_study\\Game Note\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Source.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C_study\\C-game\\Source.cpp",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C_study\\Sample\\C-game\\Source.cpp",
               "RelativeDocumentMoniker": "Source.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C_study\\C-game\\Source.cpp",
+              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C_study\\Sample\\C-game\\Source.cpp",
               "RelativeToolTip": "Source.cpp",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwBwAAABDAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-23T09:58:27.952Z",
               "IsPinned": true,
@@ -56,18 +53,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Source.cpp",
-              "DocumentMoniker": "C:\\Users\\Administrator\\Desktop\\C_study\\Game Note\\Source.cpp",
-              "RelativeDocumentMoniker": "..\\Game Note\\Source.cpp",
-              "ToolTip": "C:\\Users\\Administrator\\Desktop\\C_study\\Game Note\\Source.cpp",
-              "RelativeToolTip": "..\\Game Note\\Source.cpp",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAA8AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-27T09:20:11.739Z"
             }
           ]
         }

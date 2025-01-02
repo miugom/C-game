@@ -1,8 +1,8 @@
 ﻿  Source.cpp
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(291,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(291,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(297,46): warning C4267: '인수': 'size_t'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(309,21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(309,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\Administrator\Desktop\C_study\C-game\Source.cpp(313,46): warning C4267: '인수': 'size_t'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  C Game.vcxproj -> C:\Users\Administrator\Desktop\C_study\C-game\x64\Debug\C Game.exe
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(291,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(291,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(297,46): warning C4267: '인수': 'size_t'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(309,21): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(309,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Administrator\Desktop\C_study\Sample\C-game\Source.cpp(313,46): warning C4267: '인수': 'size_t'에서 'DWORD'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  C Game.vcxproj -> C:\Users\Administrator\Desktop\C_study\Sample\C-game\x64\Debug\C Game.exe
